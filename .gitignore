@@ -1,0 +1,20 @@
+# Local Terraform directories
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.tfvars
+terraform.tfvars.json
+
+# Sensitive files
+*.pem
+*.key
+
+# OS generated files
+.DS_Store
+*.swp
+*.bak
