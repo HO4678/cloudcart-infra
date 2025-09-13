@@ -196,18 +196,25 @@ resource "aws_db_subnet_group" "db_subnet_group" {
 
 # RDS PostgreSQL
 resource "aws_db_instance" "postgres" {
-  identifier = "terraform-postgres-db"
-  engine = "postgres"
-  engine_version = "11.22-rds.20240808"
-  instance_class = "db.t3.micro"
-  allocated_storage = 20
-  db_subnet_group_name = aws_db_subnet_group.db_subnet_group.name
-  vpc_security_group_ids = [aws_security_group.db_sg.id]
-  username = "cloudcartadmin"
-  password = "StrongPassword123!"
-  skip_final_snapshot = true
-  publicly_accessible = false
+  identifier              = "terraform-postgres-db"
+  allocated_storage       = 20
+  engine                  = "postgres"
+  engine_version          = "15.5"               # Valid Postgres version
+  instance_class          = "db.t3.micro"
+  db_name                 = "cloudcartdb"        # Add database name
+  username                = "cloudcartadmin"     # Not 'admin'
+  password                = "StrongPassword123!" # Keep secret in real project
+  parameter_group_name    = "default.postgres15"
+  skip_final_snapshot     = true
+  db_subnet_group_name    = aws_db_subnet_group.db_subnet_group.name
+  vpc_security_group_ids  = [aws_security_group.db_sg.id]
+  publicly_accessible     = false
+
+  tags = {
+    Name = "cloudcart-postgres"
+  }
 }
+
 
 # EC2 Instance
 resource "aws_instance" "app_instance" {
