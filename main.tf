@@ -199,12 +199,12 @@ resource "aws_db_instance" "postgres" {
   identifier              = "terraform-postgres-db"
   allocated_storage       = 20
   engine                  = "postgres"
-  engine_version          = "15.5"               # Valid Postgres version
+  engine_version          = "17.4"               # Valid Postgres version
   instance_class          = "db.t3.micro"
   db_name                 = "cloudcartdb"        # Add database name
   username                = "cloudcartadmin"     # Not 'admin'
   password                = "StrongPassword123!" # Keep secret in real project
-  parameter_group_name    = "default.postgres15"
+  parameter_group_name    = "default.postgres17"
   skip_final_snapshot     = true
   db_subnet_group_name    = aws_db_subnet_group.db_subnet_group.name
   vpc_security_group_ids  = [aws_security_group.db_sg.id]
