@@ -54,21 +54,21 @@ This project demonstrates skills in:
 # Deployment Steps
 
 1. Provision Infrastructure:
-/n terraform init
-/n terraform apply
-/n terraform output   # Get RDS endpoint + EC2 IP
+ - terraform init
+ - terraform apply
+ - terraform output   # Get RDS endpoint + EC2 IP
 
-2. Build & Push Docker Image:
-docker build -t cloudcart-app:latest .
-docker tag cloudcart-app:latest <dockerhub-username>/cloudcart-app:latest
-docker push <dockerhub-username>/cloudcart-app:latest
+3. Build & Push Docker Image:
+- docker build -t cloudcart-app:latest .
+- docker tag cloudcart-app:latest <dockerhub-username>/cloudcart-app:latest
+- docker push <dockerhub-username>/cloudcart-app:latest
 
-3. Run Container on EC2:
-docker run -d -p 5000:5000 \
+4. Run Container on EC2:
+- docker run -d -p 5000:5000 \
   -e DATABASE_URL='postgresql://<db_user>:<db_password>@<rds_endpoint>/<db_name>' \
   <dockerhub-username>/cloudcart-app:latest
 
-4. Access the App:
+5. Access the App:
 - Browser → http://<EC2-Public-IP>:5000
 - Example Output: Hello from CloudCart App running in Docker!
 
