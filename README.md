@@ -54,9 +54,9 @@ This project demonstrates skills in:
 # Deployment Steps
 
 1. Provision Infrastructure:
-terraform init
-terraform apply
-terraform output   # Get RDS endpoint + EC2 IP
+/n terraform init
+/n terraform apply
+/n terraform output   # Get RDS endpoint + EC2 IP
 
 2. Build & Push Docker Image:
 docker build -t cloudcart-app:latest .
