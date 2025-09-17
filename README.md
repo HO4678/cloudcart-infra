@@ -69,7 +69,7 @@ This project demonstrates skills in:
   <dockerhub-username>/cloudcart-app:latest
 
 5. Access the App:
-- Browser → http://<EC2-Public-IP>:5000
+- Browser → http://(EC2-Public-IP):5000
 - Example Output: Hello from CloudCart App running in Docker!
 
 
